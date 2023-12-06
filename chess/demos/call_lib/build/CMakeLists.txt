@@ -1,6 +1,6 @@
 ﻿
 cmake_policy(VERSION 3.6)
-project(demo_calllib VERSION 0.1)
+project(demo_calllib_chess VERSION 0.1)
 cmake_minimum_required(VERSION 3.6)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -44,7 +44,7 @@ set(LIST_PUBLIC_LIB
   #  uio
   #  msgchannel
   #  socket_channel
-   toml
+#   toml
   )
 
 # 本地的模块
@@ -54,6 +54,7 @@ set(LIST_LOCAL_LIB
   #  tool
   #  json_explain
   #  http_def
+  chess
   )
 
 # 编译选项
@@ -105,7 +106,7 @@ ENDFOREACH(MYSUBLIB)
 FOREACH(MYSUBLIB ${LIST_LOCAL_LIB})
 if(NOT TARGET ${MYSUBLIB})
   message("add_subdirectory ${MYSUBLIB}")
-  add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../common/${MYSUBLIB}/ ${CMAKE_CURRENT_BINARY_DIR}/${MYSUBLIB}_${COMPILER_SUFFIX}.out/)
+  add_subdirectory(/home/sxy/Github/game_repo/${MYSUBLIB}/ ${CMAKE_CURRENT_BINARY_DIR}/${MYSUBLIB}_${COMPILER_SUFFIX}.out/)
 endif()
 ENDFOREACH(MYSUBLIB)
 
